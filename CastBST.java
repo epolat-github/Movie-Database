@@ -157,7 +157,6 @@ public class CastBST {
     }
 
     // TODO: Work on it
-    // TODO: redundant line
     private Cast findSuccessor(Node root) {
         // Summary: Finds the successor (the next node that can be replaced with the
         // removed node).
