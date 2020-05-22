@@ -1,3 +1,13 @@
+//-----------------------------------------------------
+// Title:       Movie Database with BST
+// Author:      Erinç Polat
+//              Çağla Su Keşan
+// ID:          13715949830
+//              ~~other id~~
+// Section:     01
+// Assignment:  4
+// Description: This class defines the movie object.
+//-----------------------------------------------------
 
 public class Movie {
     private String title;
@@ -18,9 +28,11 @@ public class Movie {
     }
 
     public String getDirectorFullName() {
+        // Summary: Combines the name and surname of the director for easiness.
         return this.directorName + " " + this.directorSurname;
     }
 
+    // CRUD operations for the cast BST of the movie.
     public void addCast(Cast newCast) {
         this.casts.add(newCast);
     }
@@ -37,6 +49,7 @@ public class Movie {
         return this.casts.findByName(castName);
     }
 
+    // GETTERS && SETTERS //
     public String getTitle() {
         return title;
     }
@@ -88,9 +101,5 @@ public class Movie {
     public CastBST getCast() {
         return casts;
     }
-
-    // public void setCast(CastBST casts) {
-    //     this.casts = casts;
-    // }
 
 }

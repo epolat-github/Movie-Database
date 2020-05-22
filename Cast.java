@@ -1,3 +1,15 @@
+
+//-----------------------------------------------------
+// Title:       Movie Database with BST
+// Author:      Erinç Polat
+//              Çağla Su Keşan
+// ID:          13715949830
+//              ~~other id~~
+// Section:     01
+// Assignment:  4
+// Description: This class defines the Cast object
+//-----------------------------------------------------
+
 public class Cast {
     private String name, surname;
     private String roleTitle;
@@ -8,11 +20,14 @@ public class Cast {
         this.roleTitle = roleTitle;
     }
 
-    public String getFullname(){
+    public String getFullname() {
+        // Summary: Combines the name and surname of the particular cast for easiness of
+        // comparing.
         String fullName = String.format("%s %s", this.name, this.surname);
         return fullName;
     }
 
+    // GETTERS && SETTERS //
     public String getName() {
         return name;
     }
@@ -37,5 +52,4 @@ public class Cast {
         this.roleTitle = roleTitle;
     }
 
-    
 }
