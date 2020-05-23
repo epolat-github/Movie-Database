@@ -67,8 +67,6 @@ public class CastBST {
         return this.findByName(root, castName);
     }
 
-    // TODO: fix the method. tree is constructed with the cast names already. don't
-    // traverse all nodes
     private Cast findByName(Node root, String castName) {
         // --------------------------------------------------------
         // Summary: Finds the given cast's node recursively and return its data.
@@ -82,28 +80,21 @@ public class CastBST {
             return null;
         }
 
-        // method should traverse all nodes
-        Cast foundLeft = null;
-        Cast foundRight = null;
+        // Cast BST is built with respect to cast names.
+        // Method uses this feature to search efficiently
 
-        if (root.data.getFullname().equals(castName)) {
+        // right subtree
+        if (castName.compareTo(root.data.getFullname()) > 0) {
+            return findByName(root.right, castName);
+        }
+
+        // left subtree
+        if (castName.compareTo(root.data.getFullname()) < 0) {
+            return findByName(root.left, castName);
+        }
+        // equality
+        else {
             return root.data;
-        }
-
-        if (root.right != null) {
-            foundRight = findByName(root.right, castName);
-        }
-
-        if (root.left != null) {
-            foundLeft = findByName(root.left, castName);
-        }
-
-        if (foundLeft != null) {
-            return foundLeft;
-        } else if (foundRight != null) {
-            return foundRight;
-        } else {
-            return null;
         }
     }
 
@@ -112,8 +103,6 @@ public class CastBST {
         this.root = remove(this.root, castName);
     }
 
-    // TODO: fix the method. tree is constructed with the cast names already. don't
-    // traverse all nodes
     private Node remove(Node root, String castName) {
         // --------------------------------------------------------
         // Summary: Removes the given cast.
@@ -126,15 +115,20 @@ public class CastBST {
             return null;
         }
 
-        // if it's not the searched node
-        if (!root.data.getFullname().equals(castName)) {
+        // Cast BST is built with respect to cast names.
+        // Method uses this feature to search efficiently
 
+        // right subtree
+        if (castName.compareTo(root.data.getFullname()) > 0) {
             root.right = remove(root.right, castName);
-            root.left = remove(root.left, castName);
-
         }
 
-        // if it's the searched node
+        // left subtree
+        else if (castName.compareTo(root.data.getFullname()) < 0) {
+            root.left = remove(root.left, castName);
+        }
+
+        // equality
         else {
             if (root.left == null) {
                 return root.right;
