@@ -140,7 +140,7 @@ public class CastBST {
 
             // two children node
             // find the smallest among the larger values
-            root.data = findSuccessor(root.right);
+            root.data = findSuitableDescendant(root.right);
 
             // delete
             root.right = remove(root.right, root.data.getFullname());
@@ -150,10 +150,9 @@ public class CastBST {
         return root;
     }
 
-    // TODO: Work on it
-    private Cast findSuccessor(Node root) {
-        // Summary: Finds the successor (the next node that can be replaced with the
-        // removed node).
+    private Cast findSuitableDescendant(Node root) {
+        // Summary: Finds the next node that can be replaced with the
+        // removed node.
         while (root.left != null) {
             root = root.left;
         }
