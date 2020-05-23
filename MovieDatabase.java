@@ -184,7 +184,7 @@ public class MovieDatabase {
 
         // this conditional operation is necessary for the precise formatting. Newline
         // before "---none---"
-        if (castInfo != null) {
+        if (castInfo != "") {
             System.out.printf("%s %s", foundMovie.getDirectorName(), foundMovie.getDirectorSurname());
             System.out.printf("%s\n", foundMovie.printCast());
         } else {
@@ -267,7 +267,7 @@ public class MovieDatabase {
         // Precondition: There should be movies in between the given years.
         // Postcondition: Printed if any exists. Otherwise, an error message is printed.
         // --------------------------------------------------------
-        
+
         String moviesOutput = this.movies.findByInterval(startYear, endYear);
 
         System.out.println(startYear + "-" + endYear);

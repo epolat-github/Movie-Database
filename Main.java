@@ -98,12 +98,14 @@ public class Main {
         md.addActor("The Interpreter", "Nicole", "Kidman", "Silvia Broom");
         md.addActor("The Interpreter", "Sean", "Penn", "Tobin Keller");
         md.addActor("The Interpreter", "Earl", "Cameron", "Zuwanie");
-        // md.showMovie("Barton Fink");
-        md.showMovie("Eyes Wide Shut");
-        md.removeActor("Eyes Wide Shut", "Jackie", "Sawaris", "Roz");
-        md.showMovie("Eyes Wide Shut");
-        md.removeActor("Eyes Wide Shut", "Sydney", "Pollack", "Roz");
-        md.showMovie("Eyes Wide Shut");
+        
+        md.showMovie("The Interpreter");
+        md.removeActor("The Interpreter", "Nicole", "Kidman", "Silvia Broom");
+        md.removeActor("The Interpreter", "Sean", "Penn", "Tobin Keller");
+        md.removeActor("The Interpreter", "Earl", "Cameron", "Zuwanie");
+        md.showMovie("The Interpreter");
+        
+
         // md.showActorRoles("Nicole", "Kidman");
         // md.showActorRoles("Tom", "Cruise");
         // md.showActorRoles("Judy", "Davis");
