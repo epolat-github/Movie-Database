@@ -66,7 +66,7 @@ public class MovieDatabase {
 
         // remove the movie
         movies.remove(movieTitle);
-        System.out.printf("INFO: Movie %s has been removed", movieTitle);
+        System.out.printf("INFO: Movie %s has been removed\n", movieTitle);
 
     }
 
@@ -88,7 +88,7 @@ public class MovieDatabase {
         Movie foundMovie = movies.findByTitle(movieTitle);
 
         if (foundMovie == null) {
-            System.out.printf("ERROR: Movie %s does not exist\n", movieTitle);
+            System.out.printf("ERROR: Movie %s does not exist\n\n", movieTitle);
             return;
         }
 
@@ -96,14 +96,14 @@ public class MovieDatabase {
         Cast foundCast = foundMovie.findCast(newCast.getFullname());
 
         if (foundCast != null) {
-            System.out.printf("ERROR: Cast %s already exists\n", foundCast.getFullname());
+            System.out.printf("ERROR: Cast %s already exists\n\n", foundCast.getFullname());
             return;
         }
 
         // add the new cast to the found movie
         foundMovie.addCast(newCast);
 
-        System.out.printf("INFO: %s has been added to the movie %s\n", newCast.getFullname(), movieTitle);
+        System.out.printf("INFO: %s has been added to the movie %s\n\n", newCast.getFullname(), movieTitle);
     }
 
     public void removeActor(String movieTitle, String actorFirstName, String actorLastName, String roleTitle) {
@@ -118,7 +118,7 @@ public class MovieDatabase {
         Movie foundMovie = movies.findByTitle(movieTitle);
 
         if (foundMovie == null) {
-            System.out.printf("ERROR: Movie %s does not exist\n", movieTitle);
+            System.out.printf("ERROR: Movie %s does not exist\n\n", movieTitle);
             return;
         }
 
@@ -128,14 +128,14 @@ public class MovieDatabase {
         Cast foundCast = foundMovie.findCast(castFullName);
 
         if (foundCast == null) {
-            System.out.printf("ERROR: Cast %s does not exist\n", castFullName);
+            System.out.printf("ERROR: Cast %s does not exist\n\n", castFullName);
             return;
         }
 
         // delete the cast
         foundMovie.deleteCast(castFullName);
 
-        System.out.printf("INFO: %s has been removed from the movie %s\n", castFullName, movieTitle);
+        System.out.printf("INFO: %s has been removed from the movie %s\n\n", castFullName, movieTitle);
     }
 
     public void showAllMovies() {
@@ -149,12 +149,12 @@ public class MovieDatabase {
         // Get the formatted list
         String movieList = this.movies.printAscendingByRelease();
 
-        if (movieList == null) {
-            System.out.println("---none---");
+        if (movieList == "") {
+            System.out.println("---none---\n");
             return;
         }
 
-        System.out.println(movieList);
+        System.out.println(movieList + "\n");
     }
 
     public void showMovie(String movieTitle) {
@@ -171,7 +171,7 @@ public class MovieDatabase {
         System.out.println(movieTitle);
 
         if (foundMovie == null) {
-            System.out.println("---none---");
+            System.out.println("---none---\n");
             return;
         }
 
@@ -186,10 +186,10 @@ public class MovieDatabase {
         // before "---none---"
         if (castInfo != "") {
             System.out.printf("%s %s", foundMovie.getDirectorName(), foundMovie.getDirectorSurname());
-            System.out.printf("%s\n", foundMovie.printCast());
+            System.out.printf("%s\n\n", foundMovie.printCast());
         } else {
             System.out.printf("%s %s\n", foundMovie.getDirectorName(), foundMovie.getDirectorSurname());
-            System.out.println("---none---");
+            System.out.println("---none---\n");
         }
 
     }
@@ -209,11 +209,11 @@ public class MovieDatabase {
         System.out.println(castFullName);
 
         if (rolesOutput.equals("")) {
-            System.out.println("---none---");
+            System.out.println("---none---\n");
             return;
         }
 
-        System.out.print(rolesOutput);
+        System.out.println(rolesOutput);
     }
 
     public void showDirectorMovies(String directorFirstName, String directorLastName) {
@@ -231,11 +231,11 @@ public class MovieDatabase {
         System.out.println(directorFullName);
 
         if (moviesOutput.equals("")) {
-            System.out.println("---none---");
+            System.out.println("---none---\n");
             return;
         }
 
-        System.out.print(moviesOutput);
+        System.out.println(moviesOutput);
     }
 
     public void showMovies(int releaseYear) {
@@ -252,11 +252,11 @@ public class MovieDatabase {
         System.out.println(releaseYear);
 
         if (moviesOutput.equals("")) {
-            System.out.println("---none---");
+            System.out.println("---none---\n");
             return;
         }
 
-        System.out.print(moviesOutput);
+        System.out.println(moviesOutput);
 
     }
 
@@ -273,7 +273,7 @@ public class MovieDatabase {
         System.out.println(startYear + "-" + endYear);
 
         if (moviesOutput.equals("")) {
-            System.out.println("---none---");
+            System.out.println("---none---\n");
             return;
         }
 
